@@ -2,6 +2,7 @@
 # NOTE: You only need to modify www project target. Don't modify port.
 #
 # Hints: htpasswd
+# File location: ./etc/nginx/htpasswd
 # Don't use `-b` option, otherwise nginx won't update htpasswd config.
 #
 # ```
