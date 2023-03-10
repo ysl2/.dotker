@@ -12,7 +12,8 @@
 # htpasswd ./htpasswd user2
 # ```
 #
-# (Optional) If you want to deploy docsify into nginx docker:
+# (Deprecated: No need to run `docsify serve`.)
+# If you want to deploy docsify into nginx docker:
 #
 # 1. Add this line below into your docker run command:
 #
