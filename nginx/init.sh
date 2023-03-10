@@ -1,15 +1,36 @@
 #!/bin/bash
 # NOTE: You only need to modify www project target. Don't modify port.
-# After container init, you need to exec into container to deploy docsify process.
-# ```
-# # Exec this when you are outside container:
-# sudo docker exec -it nginx /bin/bash
 # 
-# # After into container:
-# ln -s /bin/nodejs-lib/bin/node /bin/node
-# cd /www
-# /bin/nodejs-lib/bin/docsify serve &
+# Hints: htpasswd
+#
 # ```
+# # Add new htpasswd config:
+# htpasswd -bc ./htpasswd user1 *******
+#
+# # Update htpasswd config:
+# htpasswd -b ./htpasswd user2 *******
+# ```
+#
+# (Optional) If you want to deploy docsify into nginx docker:
+#
+# 1. Add this line below into your docker run command:
+#
+#   ```
+#   -v /home/yusongli/.bin/nodejs-lib:/bin/nodejs-lib \
+#   ```
+#
+# 2. send docsify binary into container, and docsify serve page:
+#
+#    ```
+#    # Exec this when you are outside container:
+#    sudo docker exec -it nginx /bin/bash
+#    
+#    # After into container:
+#    ln -s /bin/nodejs-lib/bin/node /bin/node
+#    cd /www
+#    /bin/nodejs-lib/bin/docsify serve &
+#    ```
+#
 sudo docker run \
     -d \
     -p 80:80 \
@@ -17,12 +38,6 @@ sudo docker run \
     -v /home/yusongli/.dotker/nginx/etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf \
     -v /home/yusongli/.dotker/nginx/etc/nginx/htpasswd:/etc/nginx/htpasswd \
     -v /home/yusongli/.dotker/nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf \
-    -v /home/yusongli/.bin/nodejs-lib:/bin/nodejs-lib \
     --name nginx \
     nginx
 
-# Add new htpasswd config:
-# htpasswd -bc ./htpasswd user1 *******
-
-# Update htpasswd config:
-# htpasswd -b ./htpasswd user2 *******
