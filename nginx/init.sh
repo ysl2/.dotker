@@ -16,7 +16,7 @@
 # 1. Add this line below into your docker run command:
 #
 #   ```
-#   -v /home/yusongli/.bin/nodejs-lib:/bin/nodejs-lib \
+#   -v /home/yusongli/.bin/lib-nodejs:/bin/lib-nodejs \
 #   ```
 #
 # 2. send docsify binary into container, and docsify serve page:
@@ -26,9 +26,9 @@
 #    sudo docker exec -it nginx /bin/bash
 #    
 #    # After into container:
-#    ln -s /bin/nodejs-lib/bin/node /bin/node
+#    ln -s /bin/lib-nodejs/bin/node /bin/node
 #    cd /www
-#    /bin/nodejs-lib/bin/docsify serve &
+#    /bin/lib-nodejs/bin/docsify serve &
 #    ```
 #
 sudo docker run \
@@ -40,4 +40,3 @@ sudo docker run \
     -v /home/yusongli/.dotker/nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf \
     --name nginx \
     nginx
-
