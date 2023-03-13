@@ -37,7 +37,7 @@
 sudo docker run \
     -d \
     -p 80:80 \
-    -v /home/yusongli/Public/docker/nginx/80/YUNet:/www \
+    -v /home/yusongli/Public/docker/nginx/80/docsify:/www \
     -v /home/yusongli/.dotker/nginx/etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf \
     -v /home/yusongli/.dotker/nginx/etc/nginx/htpasswd:/etc/nginx/htpasswd \
     -v /home/yusongli/.dotker/nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf \
